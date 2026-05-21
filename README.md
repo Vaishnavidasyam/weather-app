@@ -1,28 +1,42 @@
 # WeatherPro
 
-WeatherPro is a real-time weather intelligence application that shows current weather, hourly forecast, 7-day forecast, air quality, UV index, sunrise/sunset time, temperature charts, and AI-based clothing and activity suggestions.
+WeatherPro is a modern weather intelligence web application that provides real-time weather updates, hourly and 7-day forecasts, AI-powered insights, and location-based weather details in a clean, responsive interface.
 
 ## Features
 
 - Real-time current weather.
-- City search with location lookup.
-- Current location detection using geolocation.
-- Celsius/Fahrenheit toggle.
+- Search weather by city name.
+- Detect current location using geolocation.
+- Toggle between Celsius and Fahrenheit.
 - Hourly temperature chart.
 - 7-day weather forecast.
-- UV index card.
-- Sunrise and sunset card.
-- Air quality information.
-- AI insights for clothing advice and activity suggestions.
+- UV index information.
+- Sunrise and sunset details.
+- Air quality display.
+- AI-based clothing advice.
+- AI-based activity suggestions.
 - Light and dark theme support.
+- Responsive UI for desktop and mobile.
 
 ## Tech Stack
 
-- Frontend: React, Axios, Framer Motion, Lucide React
-- Backend: Node.js / Express
-- Weather API: OpenWeather
-- ML/AI: Custom weather insight logic
-- Styling: CSS
+### Frontend
+- React
+- Axios
+- Framer Motion
+- Lucide React
+- CSS
+
+### Backend
+- Node.js
+- Express
+
+### APIs and Data
+- OpenWeather API
+- Geocoding API
+
+### Optional / Advanced
+- Machine learning or rule-based weather insight logic
 
 ## Project Structure
 
@@ -36,7 +50,18 @@ weather-app/
 └── README.md
 ```
 
-## Setup Instructions
+## Screenshots
+
+_Add screenshots here after running the project._
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js
+- npm
+- Git
+- OpenWeather API key
 
 ### 1. Clone the repository
 
@@ -59,14 +84,16 @@ cd ../frontend
 npm install
 ```
 
-### 4. Add environment variables
+### 4. Configure environment variables
 
-Create a `.env` file inside the backend folder and add your API keys:
+Create a `.env` file inside the `backend` folder:
 
 ```env
-OPENWEATHER_API_KEY=your_api_key_here
+OPENWEATHER_API_KEY=your_openweather_api_key
 PORT=5000
 ```
+
+If you use any other secret keys, add them here as well.
 
 ### 5. Run the backend
 
@@ -85,21 +112,48 @@ npm start
 ## Usage
 
 1. Open the app in your browser.
-2. Search for any city.
-3. Switch between Celsius and Fahrenheit.
-4. Use the location icon to fetch your current weather.
-5. View hourly charts, 7-day forecast, and AI insights.
+2. Search for a city.
+3. Use the location button to fetch current location weather.
+4. Switch between Celsius and Fahrenheit.
+5. View hourly forecasts, 7-day forecasts, and AI insights.
 
-## Environment Variables
+## API Endpoints
 
-- `OPENWEATHER_API_KEY`: API key for weather data.
-- `PORT`: Backend server port.
+### `GET /api/weather`
+Fetch current weather, hourly forecast, daily forecast, and AI insights for a location.
 
-## Notes
+### `GET /api/search`
+Search for a city and return matching coordinates.
 
-- Make sure backend and frontend are running at the same time.
-- If AI insights do not appear, check the backend response structure.
-- The app is designed to support both metric and imperial units.
+## Folder Overview
+
+### `frontend`
+Contains the React UI components, styles, and pages.
+
+### `backend`
+Contains the API server, weather fetching logic, and data formatting.
+
+### `ml-model`
+Contains any model or logic used for AI-based weather insights.
+
+### `docker`
+Contains Docker-related setup files.
+
+## Troubleshooting
+
+- If weather data does not load, check your API key.
+- If city search returns a wrong place name, verify the geocoding response.
+- If AI insights do not appear in Fahrenheit mode, check the unit handling in backend and frontend.
+- If the app does not start, make sure backend and frontend are both running.
+
+## Future Improvements
+
+- Add weather alerts.
+- Add saved favorite cities.
+- Add charts for humidity, wind, and pressure.
+- Improve AI clothing recommendations.
+- Add login and user preferences.
+- Deploy the app online.
 
 ## License
 
