@@ -1,0 +1,453 @@
+/* =========================================================
+   AIR QUALITY CARD
+========================================================= */
+
+.aqi-card {
+  position: relative;
+
+  padding: 34px;
+
+  background: var(--card-bg);
+
+  border: 1px solid var(--card-border);
+
+  backdrop-filter: blur(30px);
+
+  border-radius: var(--radius-xl);
+
+  box-shadow: var(--shadow-md);
+
+  overflow: hidden;
+
+  transition: var(--transition);
+}
+
+/* =========================================================
+   PREMIUM GLOW
+========================================================= */
+
+.aqi-card::before {
+  content: "";
+
+  position: absolute;
+
+  top: -140px;
+  right: -140px;
+
+  width: 280px;
+  height: 280px;
+
+  background: radial-gradient(circle, rgba(34, 197, 94, 0.14), transparent 70%);
+
+  filter: blur(40px);
+
+  pointer-events: none;
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.aqi-header {
+  position: relative;
+
+  z-index: 2;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 16px;
+
+  margin-bottom: 34px;
+}
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.aqi-title {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+}
+
+.aqi-title svg {
+  width: 20px;
+  height: 20px;
+
+  color: #22c55e;
+}
+
+.aqi-title span {
+  color: var(--text-primary);
+
+  font-size: 1.1rem;
+
+  font-weight: 700;
+
+  letter-spacing: -0.03em;
+}
+
+/* =========================================================
+   STATUS
+========================================================= */
+
+.aqi-status {
+  padding: 10px 16px;
+
+  border-radius: 999px;
+
+  background: rgba(255, 255, 255, 0.7);
+
+  border: 1px solid rgba(255, 255, 255, 0.9);
+
+  font-size: 0.78rem;
+
+  font-weight: 700;
+
+  letter-spacing: 0.08em;
+
+  text-transform: uppercase;
+
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
+}
+
+/* =========================================================
+   MAIN
+========================================================= */
+
+.aqi-main {
+  position: relative;
+
+  z-index: 2;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 24px;
+
+  margin-bottom: 30px;
+}
+
+/* =========================================================
+   SCORE
+========================================================= */
+
+.aqi-score {
+  font-size: 5rem;
+
+  font-weight: 800;
+
+  line-height: 1;
+
+  letter-spacing: -0.08em;
+
+  color: var(--text-primary);
+}
+
+/* =========================================================
+   AQI INDICATOR
+========================================================= */
+
+.aqi-indicator {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 14px;
+}
+
+/* =========================================================
+   AQI BAR
+========================================================= */
+
+.aqi-bar {
+  position: relative;
+
+  width: 100%;
+  height: 14px;
+
+  background: rgba(255, 255, 255, 0.6);
+
+  border-radius: 999px;
+
+  overflow: hidden;
+
+  box-shadow: inset 0 2px 6px rgba(15, 23, 42, 0.06);
+}
+
+/* =========================================================
+   AQI PROGRESS
+========================================================= */
+
+.aqi-progress {
+  position: relative;
+
+  height: 100%;
+
+  border-radius: 999px;
+
+  transition: width 0.4s ease;
+
+  box-shadow: 0 0 24px rgba(34, 197, 94, 0.35);
+}
+
+/* =========================================================
+   GLOW DOT
+========================================================= */
+
+.aqi-progress::after {
+  content: "";
+
+  position: absolute;
+
+  top: 50%;
+  right: -10px;
+
+  transform: translateY(-50%);
+
+  width: 24px;
+  height: 24px;
+
+  border-radius: 50%;
+
+  background: white;
+
+  box-shadow:
+    0 0 20px rgba(255, 255, 255, 0.7),
+    0 0 40px rgba(34, 197, 94, 0.35);
+}
+
+/* =========================================================
+   SCALE
+========================================================= */
+
+.aqi-scale {
+  display: flex;
+
+  justify-content: space-between;
+
+  color: var(--text-muted);
+
+  font-size: 0.78rem;
+
+  font-weight: 600;
+}
+
+/* =========================================================
+   HEALTH CARD
+========================================================= */
+
+.aqi-health {
+  position: relative;
+
+  z-index: 2;
+
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 14px;
+
+  padding: 22px;
+
+  margin-bottom: 28px;
+
+  background: rgba(255, 255, 255, 0.56);
+
+  border: 1px solid rgba(255, 255, 255, 0.9);
+
+  border-radius: 24px;
+
+  transition: var(--transition);
+}
+
+.aqi-health:hover {
+  transform: translateY(-4px);
+
+  box-shadow: 0 18px 36px rgba(15, 23, 42, 0.08);
+}
+
+/* =========================================================
+   HEALTH ICON
+========================================================= */
+
+.aqi-health svg {
+  flex-shrink: 0;
+
+  margin-top: 2px;
+
+  color: #22c55e;
+}
+
+/* =========================================================
+   HEALTH TEXT
+========================================================= */
+
+.aqi-health p {
+  color: var(--text-secondary);
+
+  font-size: 0.96rem;
+
+  line-height: 1.8;
+}
+
+/* =========================================================
+   METRICS
+========================================================= */
+
+.aqi-metrics {
+  position: relative;
+
+  z-index: 2;
+
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 18px;
+}
+
+/* =========================================================
+   METRIC CARD
+========================================================= */
+
+.aqi-metric {
+  padding: 20px;
+
+  background: rgba(255, 255, 255, 0.56);
+
+  border: 1px solid rgba(255, 255, 255, 0.88);
+
+  border-radius: 24px;
+
+  transition: var(--transition);
+}
+
+.aqi-metric:hover {
+  transform: translateY(-4px);
+
+  box-shadow: 0 18px 36px rgba(15, 23, 42, 0.08);
+}
+
+/* =========================================================
+   METRIC LABEL
+========================================================= */
+
+.aqi-metric span {
+  display: block;
+
+  margin-bottom: 10px;
+
+  color: var(--text-muted);
+
+  font-size: 0.76rem;
+
+  font-weight: 700;
+
+  letter-spacing: 0.08em;
+
+  text-transform: uppercase;
+}
+
+/* =========================================================
+   METRIC VALUE
+========================================================= */
+
+.aqi-metric strong {
+  color: var(--text-primary);
+
+  font-size: 1.15rem;
+
+  font-weight: 700;
+
+  letter-spacing: -0.03em;
+}
+
+/* =========================================================
+   DARK THEME
+========================================================= */
+
+body[data-theme="dark"] .aqi-card {
+  background: linear-gradient(
+    180deg,
+    rgba(15, 23, 42, 0.92),
+    rgba(15, 23, 42, 0.84)
+  );
+
+  border: 1px solid rgba(255, 255, 255, 0.06);
+
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.03);
+}
+
+body[data-theme="dark"] .aqi-status,
+body[data-theme="dark"] .aqi-health,
+body[data-theme="dark"] .aqi-metric {
+  background: rgba(30, 41, 59, 0.72);
+
+  border: 1px solid rgba(255, 255, 255, 0.05);
+
+  box-shadow:
+    0 10px 24px rgba(0, 0, 0, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.03);
+}
+
+body[data-theme="dark"] .aqi-health:hover,
+body[data-theme="dark"] .aqi-metric:hover {
+  background: rgba(37, 50, 71, 0.84);
+}
+
+body[data-theme="dark"] .aqi-title span,
+body[data-theme="dark"] .aqi-score,
+body[data-theme="dark"] .aqi-metric strong {
+  color: #f8fafc;
+}
+
+body[data-theme="dark"] .aqi-health p {
+  color: #cbd5e1;
+}
+
+body[data-theme="dark"] .aqi-scale,
+body[data-theme="dark"] .aqi-metric span {
+  color: #94a3b8;
+}
+
+body[data-theme="dark"] .aqi-bar {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 768px) {
+  .aqi-card {
+    padding: 24px;
+  }
+
+  .aqi-header {
+    flex-direction: column;
+
+    align-items: flex-start;
+  }
+
+  .aqi-score {
+    font-size: 4rem;
+  }
+
+  .aqi-metrics {
+    grid-template-columns: 1fr;
+  }
+
+  .aqi-health,
+  .aqi-metric {
+    padding: 18px;
+  }
+}

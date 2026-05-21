@@ -1,0 +1,756 @@
+/* =========================================================
+   FORECAST SECTION
+========================================================= */
+
+.forecast {
+  position: relative;
+
+  padding: 38px;
+
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.88),
+    rgba(255, 255, 255, 0.74)
+  );
+
+  border: 1px solid rgba(255, 255, 255, 0.95);
+
+  border-radius: 38px;
+
+  backdrop-filter: blur(40px);
+
+  box-shadow:
+    0 20px 60px rgba(15, 23, 42, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+
+  overflow: hidden;
+}
+
+/* =========================================================
+   TOP PREMIUM GLOW
+========================================================= */
+
+.forecast::before {
+  content: "";
+
+  position: absolute;
+
+  top: -180px;
+  right: -180px;
+
+  width: 380px;
+  height: 380px;
+
+  background: radial-gradient(
+    circle,
+    rgba(124, 140, 255, 0.14),
+    transparent 70%
+  );
+
+  filter: blur(50px);
+
+  z-index: 0;
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.forecast__header {
+  position: relative;
+
+  z-index: 2;
+
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 34px;
+}
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.forecast__header h3 {
+  font-size: 2rem;
+
+  font-weight: 800;
+
+  letter-spacing: -0.05em;
+
+  color: #0f172a;
+}
+
+/* =========================================================
+   SUBTEXT
+========================================================= */
+
+.forecast__header span {
+  color: #64748b;
+
+  font-size: 0.92rem;
+
+  font-weight: 600;
+}
+
+/* =========================================================
+   LIST
+========================================================= */
+
+.forecast__list {
+  position: relative;
+
+  z-index: 2;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 18px;
+}
+
+/* =========================================================
+   FORECAST ITEM
+========================================================= */
+
+.forecast__item {
+  position: relative;
+
+  display: grid;
+
+  grid-template-columns:
+    140px
+    1fr
+    120px;
+
+  align-items: center;
+
+  gap: 24px;
+
+  padding: 26px 28px;
+
+  background: rgba(255, 255, 255, 0.72);
+
+  border: 1px solid rgba(255, 255, 255, 0.95);
+
+  border-radius: 30px;
+
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.04);
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    background 0.35s ease;
+
+  overflow: hidden;
+}
+
+/* =========================================================
+   PREMIUM LIGHT EFFECT
+========================================================= */
+
+.forecast__item::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background: linear-gradient(
+    135deg,
+    rgba(124, 140, 255, 0.08),
+    transparent 45%
+  );
+
+  opacity: 0;
+
+  transition: opacity 0.35s ease;
+}
+
+.forecast__item:hover::before {
+  opacity: 1;
+}
+
+/* =========================================================
+   HOVER EFFECT
+========================================================= */
+
+.forecast__item:hover {
+  transform: translateY(-5px) scale(1.01);
+
+  box-shadow: 0 24px 50px rgba(15, 23, 42, 0.08);
+}
+
+/* =========================================================
+   TODAY CARD
+========================================================= */
+
+.forecast__item--today {
+  background: linear-gradient(
+    135deg,
+    rgba(124, 140, 255, 0.12),
+    rgba(255, 255, 255, 0.82)
+  );
+
+  border: 1px solid rgba(124, 140, 255, 0.2);
+
+  box-shadow: 0 18px 40px rgba(124, 140, 255, 0.12);
+}
+
+/* =========================================================
+   DAY
+========================================================= */
+
+.forecast__day {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 6px;
+}
+
+.forecast__day strong {
+  font-size: 1.15rem;
+
+  font-weight: 800;
+
+  color: #0f172a;
+
+  letter-spacing: -0.03em;
+}
+
+.forecast__day span {
+  color: #64748b;
+
+  font-size: 0.92rem;
+
+  font-weight: 600;
+}
+
+/* =========================================================
+   WEATHER
+========================================================= */
+
+.forecast__weather {
+  display: flex;
+
+  align-items: center;
+
+  gap: 18px;
+
+  min-width: 0;
+}
+/* =========================================================
+   ICON BOX
+========================================================= */
+
+.forecast__icon {
+  width: 64px;
+  height: 64px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.98),
+    rgba(248, 250, 252, 0.82)
+  );
+
+  border: 1px solid rgba(255, 255, 255, 1);
+
+  border-radius: 22px;
+
+  box-shadow:
+    0 10px 30px rgba(15, 23, 42, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+
+  flex-shrink: 0;
+
+  position: relative;
+
+  overflow: hidden;
+}
+
+/* =========================================================
+   INNER GLOW
+========================================================= */
+
+.forecast__icon::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background: radial-gradient(
+    circle at top left,
+    rgba(124, 140, 255, 0.1),
+    transparent 65%
+  );
+
+  z-index: 0;
+}
+
+/* =========================================================
+   ACTUAL ICON
+========================================================= */
+
+/* =========================================================
+   ICON SVG FIX
+========================================================= */
+
+.forecast__icon svg {
+  position: relative;
+
+  z-index: 2;
+
+  width: 30px;
+  height: 30px;
+
+  stroke-width: 2.4;
+
+  color: #475569 !important;
+
+  opacity: 1 !important;
+
+  filter: drop-shadow(0 4px 12px rgba(15, 23, 42, 0.12));
+
+  transition: all 0.3s ease;
+}
+
+/* =========================================================
+   SUNNY
+========================================================= */
+
+.forecast__icon--sun svg {
+  color: #f59e0b !important;
+}
+
+/* =========================================================
+   CLOUDY
+========================================================= */
+
+.forecast__icon--cloud svg {
+  color: #64748b !important;
+}
+
+/* =========================================================
+   RAIN
+========================================================= */
+
+.forecast__icon--rain svg {
+  color: #3b82f6 !important;
+}
+
+/* =========================================================
+   STORM
+========================================================= */
+
+.forecast__icon--storm svg {
+  color: #7c3aed !important;
+}
+
+/* =========================================================
+   ICON BOX STRONGER VISIBILITY
+========================================================= */
+
+.forecast__icon {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 1),
+    rgba(241, 245, 249, 0.92)
+  ) !important;
+
+  border: 1px solid rgba(226, 232, 240, 0.95) !important;
+
+  box-shadow:
+    0 10px 24px rgba(15, 23, 42, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 1);
+}
+
+/* =========================================================
+   WEATHER SPECIFIC COLORS
+========================================================= */
+
+.forecast__icon--sun svg {
+  color: #f59e0b;
+
+  filter: drop-shadow(0 6px 16px rgba(245, 158, 11, 0.28));
+}
+
+.forecast__icon--cloud svg {
+  color: #64748b;
+
+  filter: drop-shadow(0 6px 16px rgba(100, 116, 139, 0.18));
+}
+
+.forecast__icon--rain svg {
+  color: #3b82f6;
+
+  filter: drop-shadow(0 6px 16px rgba(59, 130, 246, 0.22));
+}
+
+.forecast__icon--storm svg {
+  color: #7c3aed;
+
+  filter: drop-shadow(0 6px 16px rgba(124, 58, 237, 0.22));
+}
+
+/* =========================================================
+   HOVER EFFECT
+========================================================= */
+
+.forecast__item:hover .forecast__icon {
+  transform: scale(1.06);
+
+  box-shadow: 0 16px 36px rgba(15, 23, 42, 0.08);
+}
+
+.forecast__item:hover .forecast__icon svg {
+  transform: scale(1.08);
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+  .forecast__icon {
+    width: 56px;
+    height: 56px;
+
+    border-radius: 18px;
+  }
+
+  .forecast__icon svg {
+    font-size: 1.55rem;
+  }
+}
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.forecast__weather span {
+  color: #334155;
+
+  font-size: 1rem;
+
+  font-weight: 700;
+
+  white-space: nowrap;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+}
+
+/* =========================================================
+   TEMPERATURES
+========================================================= */
+
+.forecast__temps {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: flex-end;
+
+  gap: 16px;
+}
+
+/* =========================================================
+   DIVIDER
+========================================================= */
+
+.forecast__temps::before {
+  content: "";
+
+  width: 1px;
+  height: 24px;
+
+  background: rgba(148, 163, 184, 0.24);
+}
+
+/* =========================================================
+   HIGH TEMP
+========================================================= */
+
+.forecast__high {
+  font-size: 1.9rem;
+
+  font-weight: 800;
+
+  letter-spacing: -0.04em;
+
+  color: #0f172a;
+}
+
+/* =========================================================
+   LOW TEMP
+========================================================= */
+
+.forecast__low {
+  font-size: 1.15rem;
+
+  font-weight: 700;
+
+  color: #64748b;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1100px) {
+  .forecast__item {
+    grid-template-columns:
+      120px
+      1fr
+      100px;
+  }
+}
+
+@media (max-width: 768px) {
+  .forecast {
+    padding: 24px;
+
+    border-radius: 28px;
+  }
+
+  .forecast__header {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 10px;
+  }
+
+  .forecast__header h3 {
+    font-size: 1.6rem;
+  }
+
+  .forecast__item {
+    grid-template-columns: 1fr;
+
+    gap: 18px;
+
+    padding: 22px;
+  }
+
+  .forecast__temps {
+    justify-content: flex-start;
+  }
+
+  .forecast__icon {
+    width: 54px;
+    height: 54px;
+
+    border-radius: 18px;
+  }
+
+  .forecast__high {
+    font-size: 1.5rem;
+  }
+}
+/* =========================================================
+   DARK THEME — FORECAST SECTION
+========================================================= */
+
+body[data-theme="dark"] .forecast {
+  background: linear-gradient(
+    180deg,
+    rgba(15, 23, 42, 0.92),
+    rgba(15, 23, 42, 0.82)
+  );
+
+  border: 1px solid rgba(255, 255, 255, 0.06);
+
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.03);
+}
+
+/* =========================================================
+   DARK GLOW
+========================================================= */
+
+body[data-theme="dark"] .forecast::before {
+  background: radial-gradient(
+    circle,
+    rgba(124, 140, 255, 0.18),
+    transparent 70%
+  );
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+body[data-theme="dark"] .forecast__header h3 {
+  color: #f8fafc;
+}
+
+body[data-theme="dark"] .forecast__header span {
+  color: #94a3b8;
+}
+
+/* =========================================================
+   FORECAST ITEM
+========================================================= */
+
+body[data-theme="dark"] .forecast__item {
+  background: rgba(30, 41, 59, 0.72);
+
+  border: 1px solid rgba(255, 255, 255, 0.05);
+
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.32),
+    inset 0 1px 0 rgba(255, 255, 255, 0.02);
+}
+
+body[data-theme="dark"] .forecast__item:hover {
+  background: rgba(37, 50, 71, 0.88);
+
+  box-shadow:
+    0 22px 50px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.03);
+}
+
+/* =========================================================
+   TODAY ITEM
+========================================================= */
+
+body[data-theme="dark"] .forecast__item--today {
+  background: linear-gradient(
+    135deg,
+    rgba(124, 140, 255, 0.16),
+    rgba(30, 41, 59, 0.92)
+  );
+
+  border: 1px solid rgba(124, 140, 255, 0.24);
+
+  box-shadow:
+    0 18px 40px rgba(91, 108, 255, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.02);
+}
+
+/* =========================================================
+   DAY
+========================================================= */
+
+body[data-theme="dark"] .forecast__day strong {
+  color: #f8fafc;
+}
+
+body[data-theme="dark"] .forecast__day span {
+  color: #94a3b8;
+}
+
+/* =========================================================
+   WEATHER DESCRIPTION
+========================================================= */
+
+body[data-theme="dark"] .forecast__weather span {
+  color: #e2e8f0;
+}
+
+/* =========================================================
+   TEMPERATURES
+========================================================= */
+
+body[data-theme="dark"] .forecast__high {
+  color: #f8fafc;
+}
+
+body[data-theme="dark"] .forecast__low {
+  color: #94a3b8;
+}
+
+body[data-theme="dark"] .forecast__temps::before {
+  background: rgba(148, 163, 184, 0.16);
+}
+
+/* =========================================================
+   ICON CONTAINER
+========================================================= */
+
+body[data-theme="dark"] .forecast__icon {
+  background: linear-gradient(
+    180deg,
+    rgba(30, 41, 59, 0.96),
+    rgba(15, 23, 42, 0.96)
+  ) !important;
+
+  border: 1px solid rgba(255, 255, 255, 0.05) !important;
+
+  box-shadow:
+    0 10px 24px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.03);
+}
+
+/* =========================================================
+   ICON INNER GLOW
+========================================================= */
+
+body[data-theme="dark"] .forecast__icon::before {
+  background: radial-gradient(
+    circle at top left,
+    rgba(124, 140, 255, 0.16),
+    transparent 70%
+  );
+}
+
+/* =========================================================
+   DEFAULT SVG
+========================================================= */
+
+body[data-theme="dark"] .forecast__icon svg {
+  color: #e2e8f0 !important;
+
+  filter: drop-shadow(0 6px 16px rgba(0, 0, 0, 0.4));
+}
+
+/* =========================================================
+   SUNNY
+========================================================= */
+
+body[data-theme="dark"] .forecast__icon--sun svg {
+  color: #fbbf24 !important;
+
+  filter: drop-shadow(0 8px 20px rgba(251, 191, 36, 0.35));
+}
+
+/* =========================================================
+   CLOUDY
+========================================================= */
+
+body[data-theme="dark"] .forecast__icon--cloud svg {
+  color: #cbd5e1 !important;
+
+  filter: drop-shadow(0 8px 20px rgba(203, 213, 225, 0.18));
+}
+
+/* =========================================================
+   RAIN
+========================================================= */
+
+body[data-theme="dark"] .forecast__icon--rain svg {
+  color: #60a5fa !important;
+
+  filter: drop-shadow(0 8px 20px rgba(96, 165, 250, 0.3));
+}
+
+/* =========================================================
+   STORM
+========================================================= */
+
+body[data-theme="dark"] .forecast__icon--storm svg {
+  color: #a78bfa !important;
+
+  filter: drop-shadow(0 8px 20px rgba(167, 139, 250, 0.32));
+}

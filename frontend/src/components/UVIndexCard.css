@@ -1,0 +1,536 @@
+/* =========================================================
+   UV CARD
+========================================================= */
+
+.uv-card {
+  position: relative;
+
+  padding: 34px;
+
+  background: rgba(255, 255, 255, 0.72);
+
+  border: 1px solid rgba(255, 255, 255, 0.85);
+
+  backdrop-filter: blur(30px);
+
+  border-radius: 34px;
+
+  box-shadow: 0 20px 60px rgba(15, 23, 42, 0.08);
+
+  overflow: hidden;
+}
+
+/* =========================================================
+   PREMIUM GLOW
+========================================================= */
+
+.uv-card::before {
+  content: "";
+
+  position: absolute;
+
+  top: -140px;
+  right: -140px;
+
+  width: 280px;
+  height: 280px;
+
+  background: radial-gradient(
+    circle,
+    rgba(251, 191, 36, 0.18),
+    transparent 70%
+  );
+
+  filter: blur(40px);
+
+  z-index: 0;
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.uv-card__header {
+  position: relative;
+
+  z-index: 2;
+
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 34px;
+}
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.uv-card__title {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  color: #0f172a;
+
+  font-size: 1.15rem;
+
+  font-weight: 700;
+
+  letter-spacing: -0.03em;
+}
+
+.uv-card__title svg {
+  color: #f59e0b;
+
+  font-size: 1.2rem;
+}
+
+/* =========================================================
+   STATUS
+========================================================= */
+
+.uv-card__status {
+  padding: 10px 16px;
+
+  border-radius: 999px;
+
+  background: rgba(255, 255, 255, 0.65);
+
+  border: 1px solid rgba(255, 255, 255, 0.9);
+
+  font-size: 0.78rem;
+
+  font-weight: 700;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.08em;
+
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.04);
+}
+
+/* =========================================================
+   MAIN
+========================================================= */
+
+.uv-card__main {
+  position: relative;
+
+  z-index: 2;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 22px;
+
+  margin-bottom: 30px;
+}
+
+/* =========================================================
+   UV VALUE
+========================================================= */
+
+.uv-card__value {
+  font-size: 5rem;
+
+  font-weight: 800;
+
+  line-height: 1;
+
+  letter-spacing: -0.08em;
+
+  color: #0f172a;
+}
+
+/* =========================================================
+   INDICATOR
+========================================================= */
+
+.uv-card__indicator {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 14px;
+}
+
+/* =========================================================
+   BAR
+========================================================= */
+
+.uv-card__bar {
+  position: relative;
+
+  width: 100%;
+  height: 14px;
+
+  background: rgba(255, 255, 255, 0.6);
+
+  border-radius: 999px;
+
+  overflow: hidden;
+
+  box-shadow: inset 0 2px 6px rgba(15, 23, 42, 0.05);
+}
+
+/* =========================================================
+   PROGRESS
+========================================================= */
+
+.uv-card__progress {
+  position: relative;
+
+  height: 100%;
+
+  border-radius: 999px;
+
+  transition: width 0.4s ease;
+
+  box-shadow: 0 0 20px rgba(251, 191, 36, 0.35);
+}
+
+/* =========================================================
+   GLOW DOT
+========================================================= */
+
+.uv-card__progress::after {
+  content: "";
+
+  position: absolute;
+
+  right: -8px;
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  width: 22px;
+  height: 22px;
+
+  border-radius: 50%;
+
+  background: white;
+
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
+}
+
+/* =========================================================
+   SCALE
+========================================================= */
+
+.uv-card__scale {
+  display: flex;
+
+  justify-content: space-between;
+
+  color: #64748b;
+
+  font-size: 0.78rem;
+
+  font-weight: 600;
+}
+
+/* =========================================================
+   ADVICE
+========================================================= */
+
+.uv-card__advice {
+  position: relative;
+
+  z-index: 2;
+
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 14px;
+
+  padding: 22px;
+
+  margin-bottom: 28px;
+
+  background: rgba(255, 255, 255, 0.55);
+
+  border: 1px solid rgba(255, 255, 255, 0.85);
+
+  border-radius: 24px;
+
+  transition: all 0.3s ease;
+}
+
+.uv-card__advice:hover {
+  transform: translateY(-3px);
+
+  box-shadow: 0 16px 34px rgba(15, 23, 42, 0.06);
+}
+
+/* =========================================================
+   ICON
+========================================================= */
+
+.uv-card__advice svg {
+  flex-shrink: 0;
+
+  margin-top: 3px;
+
+  color: #f59e0b;
+
+  font-size: 1.1rem;
+}
+
+/* =========================================================
+   TEXT
+========================================================= */
+
+.uv-card__advice p {
+  color: #475569;
+
+  font-size: 0.95rem;
+
+  line-height: 1.8;
+
+  margin-bottom: 6px;
+}
+
+.uv-card__advice small {
+  color: #64748b;
+
+  font-size: 0.8rem;
+
+  font-weight: 500;
+}
+
+/* =========================================================
+   LEVELS
+========================================================= */
+
+.uv-card__levels {
+  position: relative;
+
+  z-index: 2;
+
+  display: flex;
+
+  gap: 6px;
+}
+
+/* =========================================================
+   LEVEL BAR
+========================================================= */
+
+.uv-card__level-bar {
+  flex: 1;
+
+  height: 10px;
+
+  border-radius: 999px;
+
+  opacity: 0.16;
+
+  transition: all 0.3s ease;
+}
+
+/* =========================================================
+   ACTIVE BAR
+========================================================= */
+
+.uv-card__level-bar--active {
+  opacity: 1;
+
+  transform: scaleY(1.15);
+
+  box-shadow: 0 0 5px currentColor;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 768px) {
+  .uv-card {
+    padding: 24px;
+  }
+
+  .uv-card__header {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 14px;
+  }
+
+  .uv-card__value {
+    font-size: 4rem;
+  }
+
+  .uv-card__advice {
+    padding: 18px;
+  }
+}
+/* =========================================================
+   DARK THEME — UV CARD
+========================================================= */
+
+body[data-theme="dark"] .uv-card {
+  background: linear-gradient(
+    180deg,
+    rgba(15, 23, 42, 0.92),
+    rgba(15, 23, 42, 0.84)
+  );
+
+  border: 1px solid rgba(255, 255, 255, 0.06);
+
+  box-shadow:
+    0 24px 70px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.03);
+}
+
+/* =========================================================
+   PREMIUM GLOW
+========================================================= */
+
+body[data-theme="dark"] .uv-card::before {
+  background: radial-gradient(
+    circle,
+    rgba(251, 191, 36, 0.16),
+    transparent 72%
+  );
+}
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+body[data-theme="dark"] .uv-card__title {
+  color: #f8fafc;
+}
+
+body[data-theme="dark"] .uv-card__title svg {
+  color: #fbbf24;
+}
+
+/* =========================================================
+   STATUS
+========================================================= */
+
+body[data-theme="dark"] .uv-card__status {
+  background: rgba(30, 41, 59, 0.82);
+
+  border: 1px solid rgba(255, 255, 255, 0.06);
+
+  color: #f8fafc;
+
+  box-shadow:
+    0 10px 24px rgba(0, 0, 0, 0.24),
+    inset 0 1px 0 rgba(255, 255, 255, 0.03);
+}
+
+/* =========================================================
+   UV VALUE
+========================================================= */
+
+body[data-theme="dark"] .uv-card__value {
+  color: #f8fafc;
+
+  text-shadow: 0 0 20px rgba(251, 191, 36, 0.18);
+}
+
+/* =========================================================
+   BAR
+========================================================= */
+
+body[data-theme="dark"] .uv-card__bar {
+  background: rgba(255, 255, 255, 0.06);
+
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* =========================================================
+   PROGRESS
+========================================================= */
+
+body[data-theme="dark"] .uv-card__progress {
+  box-shadow: 0 0 24px rgba(251, 191, 36, 0.45);
+}
+
+/* =========================================================
+   GLOW DOT
+========================================================= */
+
+body[data-theme="dark"] .uv-card__progress::after {
+  background: radial-gradient(circle, #ffffff, #fde68a);
+
+  box-shadow:
+    0 0 24px rgba(255, 255, 255, 0.7),
+    0 0 40px rgba(251, 191, 36, 0.45);
+}
+
+/* =========================================================
+   SCALE
+========================================================= */
+
+body[data-theme="dark"] .uv-card__scale {
+  color: #64748b;
+}
+
+/* =========================================================
+   ADVICE CARD
+========================================================= */
+
+body[data-theme="dark"] .uv-card__advice {
+  background: rgba(30, 41, 59, 0.62);
+
+  border: 1px solid rgba(255, 255, 255, 0.05);
+
+  box-shadow:
+    0 12px 32px rgba(0, 0, 0, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.02);
+}
+
+body[data-theme="dark"] .uv-card__advice:hover {
+  background: rgba(51, 65, 85, 0.72);
+
+  box-shadow:
+    0 20px 44px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.03);
+}
+
+/* =========================================================
+   ADVICE ICON
+========================================================= */
+
+body[data-theme="dark"] .uv-card__advice svg {
+  color: #fbbf24;
+}
+
+/* =========================================================
+   TEXT
+========================================================= */
+
+body[data-theme="dark"] .uv-card__advice p {
+  color: #cbd5e1;
+}
+
+body[data-theme="dark"] .uv-card__advice small {
+  color: #94a3b8;
+}
+
+/* =========================================================
+   LEVELS
+========================================================= */
+
+body[data-theme="dark"] .uv-card__level-bar {
+  opacity: 0.2;
+}
+
+body[data-theme="dark"] .uv-card__level-bar--active {
+  opacity: 1;
+
+  box-shadow:
+    0 0 5px currentColor,
+    0 0 3px currentColor;
+}

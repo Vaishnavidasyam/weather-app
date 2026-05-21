@@ -1,0 +1,58 @@
+version: "3.8"
+
+services:
+  mongodb:
+    image: mongo:7.0
+    container_name: weather-mongodb
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: weather_password_2026
+
+  redis:
+    image: redis:7-alpine
+    container_name: weather-redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+
+  backend:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.backend
+    container_name: weather-backend
+    restart: unless-stopped
+    ports:
+      - "5000:5000"
+    depends_on:
+      - mongodb
+      - redis
+    environment:
+      - NODE_ENV=production
+      - MONGODB_URI=mongodb://admin:weather_password_2026@mongodb:27017/advanced-weather
+      - REDIS_URL=redis://redis:6379
+      - OPENWEATHER_API_KEY=${OPENWEATHER_API_KEY}
+      - JWT_SECRET=${JWT_SECRET}
+    env_file:
+      - ../backend/.env
+
+  frontend:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.frontend
+    container_name: weather-frontend
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+
+volumes:
+  mongodb_data:
+  redis_data:
