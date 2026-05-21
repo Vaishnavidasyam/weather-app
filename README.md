@@ -1,161 +1,110 @@
-# 🌤️ Advanced Weather App v2.0
+# WeatherPro
 
-A **professional, full-stack weather application** with AI-powered insights, ML predictions, interactive charts, and PWA support.
+WeatherPro is a real-time weather intelligence application that shows current weather, hourly forecast, 7-day forecast, air quality, UV index, sunrise/sunset time, temperature charts, and AI-based clothing and activity suggestions.
 
-## ✨ Features
+## Features
 
-### Core Features
+- Real-time current weather.
+- City search with location lookup.
+- Current location detection using geolocation.
+- Celsius/Fahrenheit toggle.
+- Hourly temperature chart.
+- 7-day weather forecast.
+- UV index card.
+- Sunrise and sunset card.
+- Air quality information.
+- AI insights for clothing advice and activity suggestions.
+- Light and dark theme support.
 
-- ✅ Real-time weather updates for any location
-- ✅ 24-hour hourly forecast
-- ✅ 7-day daily forecast
-- ✅ Search by city name
-- ✅ Geolocation support
-- ✅ Unit toggle (Celsius/Fahrenheit)
+## Tech Stack
 
-### Advanced Features
+- Frontend: React, Axios, Framer Motion, Lucide React
+- Backend: Node.js / Express
+- Weather API: OpenWeather
+- ML/AI: Custom weather insight logic
+- Styling: CSS
 
-- ✅ **Interactive Charts**: Temperature, humidity, wind speed graphs (Chart.js)
-- ✅ **AI Weather Insights**: Personalized clothing, activity, and health recommendations
-- ✅ **ML Temperature Prediction**: 24-hour temperature forecast using RandomForest
-- ✅ **Air Quality Index**: Real-time pollution levels
-- ✅ **Saved Locations**: Save and switch between favorite cities
-- ✅ **Dark/Light Theme**: Customizable UI themes
-- ✅ **PWA Support**: Installable web app with offline support
-- ✅ **User Authentication**: JWT-based auth with MongoDB
-- ✅ **Responsive Design**: Mobile, tablet, desktop optimized
-
-## 🛠️ Tech Stack
-
-| Layer      | Technology                                |
-| ---------- | ----------------------------------------- |
-| Frontend   | React 18, Chart.js, React Icons, Toastify |
-| Backend    | Node.js, Express, JWT                     |
-| Database   | MongoDB                                   |
-| Cache      | Redis (optional)                          |
-| ML         | Python, scikit-learn, RandomForest        |
-| Deployment | Docker, Docker Compose, GitHub Actions    |
-
-## 📦 Installation
-
-### Prerequisites
-
-- Node.js 18+
-- Python 3.8+
-- MongoDB (local or Atlas)
-- OpenWeather API key (free)
-
-### Step 1: Get OpenWeather API Key
-
-1. Go to https://openweathermap.org/api
-2. Sign up for free account
-3. Copy your API key from https://home.openweathermap.org/api_keys
-
-### Step 2: Clone & Install Backend
+## Project Structure
 
 ```bash
-cd advanced-weather-app/backend
+weather-app/
+├── backend/
+├── frontend/
+├── ml-model/
+├── docker/
+├── .github/
+└── README.md
+```
 
-# Install dependencies
+## Setup Instructions
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/your-username/weather-app.git
+cd weather-app
+```
+
+### 2. Install backend dependencies
+
+```bash
+cd backend
 npm install
+```
 
-# Create .env file
-cp .env.example .env  # or create .env manually
+### 3. Install frontend dependencies
 
-# Edit .env and add:
-# OPENWEATHER_API_KEY=your_api_key_here
-# MONGODB_URI=mongodb://localhost:27017/advanced-weather
-# JWT_SECRET=your_secret_key_change_this
+```bash
+cd ../frontend
+npm install
+```
 
-# Start backend
+### 4. Add environment variables
+
+Create a `.env` file inside the backend folder and add your API keys:
+
+```env
+OPENWEATHER_API_KEY=your_api_key_here
+PORT=5000
+```
+
+### 5. Run the backend
+
+```bash
+cd backend
 npm start
 ```
 
-Backend runs on: **http://localhost:5000**
-
-### Step 3: Install & Train ML Model (Optional)
+### 6. Run the frontend
 
 ```bash
-cd advanced-weather-app/ml-model
-
-# Install Python dependencies
-pip install -r requirements.txt
-
-# Train the model
-python train_model.py
-```
-
-### Step 4: Install & Run Frontend
-
-```bash
-cd advanced-weather-app/frontend
-
-# Install dependencies
-npm install
-
-# Start development server
+cd frontend
 npm start
 ```
 
-Frontend runs on: **http://localhost:3000**
+## Usage
 
-## 🐳 Docker Deployment
+1. Open the app in your browser.
+2. Search for any city.
+3. Switch between Celsius and Fahrenheit.
+4. Use the location icon to fetch your current weather.
+5. View hourly charts, 7-day forecast, and AI insights.
 
-### Quick Start with Docker Compose
+## Environment Variables
 
-```bash
-# From project root
-cd advanced-weather-app
+- `OPENWEATHER_API_KEY`: API key for weather data.
+- `PORT`: Backend server port.
 
-# Start all services (MongoDB, Redis, Backend, Frontend)
-docker-compose up -d
+## Notes
 
-# Access app at:
-# Frontend: http://localhost
-# Backend API: http://localhost:5000
-# MongoDB: localhost:27017
-# Redis: localhost:6379
-```
+- Make sure backend and frontend are running at the same time.
+- If AI insights do not appear, check the backend response structure.
+- The app is designed to support both metric and imperial units.
 
-### Build Images Manually
+## License
 
-```bash
-# Build backend
-docker build -f docker/Dockerfile.backend -t weather-backend .
+This project is for educational and personal use.
 
-# Build frontend
-docker build -f docker/Dockerfile.frontend -t weather-frontend .
+## Author
 
-# Run containers
-docker-compose up -d
-```
-
-## 🚀 Production Deployment
-
-### Option 1: Vercel (Frontend) + Render (Backend)
-
-1. **Frontend (Vercel)**:
-
-   ```bash
-   npm run build
-   vercel deploy
-   ```
-
-2. **Backend (Render)**:
-   - Connect GitHub repo
-   - Set environment variables
-   - Deploy
-
-### Option 2: AWS
-
-```bash
-# Build and push to ECR
-docker tag weather-backend:latest <account-id>.dkr.ecr.region.amazonaws.com/weather-backend
-docker push <account-id>.dkr.ecr.region.amazonaws.com/weather-backend
-
-# Deploy to ECS/EKS
-```
-
-## 📊 API Endpoints
-
-### Weather
+D Vaishnavi
